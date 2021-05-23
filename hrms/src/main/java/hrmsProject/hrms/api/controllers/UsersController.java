@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hrmsProject.hrms.business.abstracts.UserService;
-import hrmsProject.hrms.entities.concretes.Candidate;
+
 import hrmsProject.hrms.entities.concretes.User;
 
 

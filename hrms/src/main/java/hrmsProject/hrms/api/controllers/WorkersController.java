@@ -32,6 +32,7 @@ public class WorkersController {
 	@PostMapping("/add")
 	public void add(@RequestBody Worker worker) {
 		this.workerService.add(worker);
+		
 	}
 
 }

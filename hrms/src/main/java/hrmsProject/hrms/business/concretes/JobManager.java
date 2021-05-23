@@ -2,6 +2,7 @@ package hrmsProject.hrms.business.concretes;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hrmsProject.hrms.business.abstracts.JobService;
@@ -14,6 +15,7 @@ public class JobManager implements JobService{
 
 	private JobDao jobDao;
 	
+	@Autowired
 	public JobManager(JobDao jobDao) {
 		super();
 		this.jobDao=jobDao;
