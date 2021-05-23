@@ -9,35 +9,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import hrmsProject.hrms.business.abstracts.UserService;
-import hrmsProject.hrms.entities.concretes.Candidate;
-import hrmsProject.hrms.entities.concretes.User;
-
+import hrmsProject.hrms.business.abstracts.WorkerService;
+import hrmsProject.hrms.entities.concretes.Worker;
 
 @RestController
-@RequestMapping("/api/users")
-public class UsersController {
+@RequestMapping("/api/workers")
+public class WorkersController {
 	
-	private UserService userService;
+	private WorkerService workerService;
 	
 	@Autowired
-	public UsersController(UserService userService) {
+	public WorkersController(WorkerService workerService) {
 		super();
-		this.userService=userService;
+		this.workerService=workerService;
 	}
 	
 	@GetMapping("/getall")
-	public List<User> getAll(){
-		
-		return	this.userService.getAll();
+	public List<Worker> getall(){
+		return this.workerService.getall();
 	}
 	
 	@PostMapping("/add")
-	public void add(@RequestBody User user){
-		
-		this.userService.add(user);
+	public void add(@RequestBody Worker worker) {
+		this.workerService.add(worker);
 	}
-	
-	
 
 }

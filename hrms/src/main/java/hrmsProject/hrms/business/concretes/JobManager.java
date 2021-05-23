@@ -1,7 +1,5 @@
 package hrmsProject.hrms.business.concretes;
 
-
-
 import java.util.List;
 
 import org.springframework.stereotype.Service;
