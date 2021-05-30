@@ -2,12 +2,14 @@ package hrmsProject.hrms.business.abstracts;
 
 import java.util.List;
 
+import hrmsProject.hrms.core.utilities.results.DataResult;
+import hrmsProject.hrms.core.utilities.results.Result;
 import hrmsProject.hrms.entities.concretes.Candidate;
 
 public interface CandidateService {
 	
  
-	public	void add(Candidate candidate);
-	public List<Candidate> getall();
+	Result add(Candidate candidate);
+	DataResult<List<Candidate> > getall();
 
 }

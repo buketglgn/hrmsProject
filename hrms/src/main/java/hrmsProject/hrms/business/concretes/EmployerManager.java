@@ -3,11 +3,13 @@ package hrmsProject.hrms.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import hrmsProject.hrms.business.abstracts.EmployerService;
 import hrmsProject.hrms.dataAccess.abstracts.EmployerDao;
 import hrmsProject.hrms.entities.concretes.Employer;
 
+@Service
 public class EmployerManager implements EmployerService {
 	
 	private EmployerDao employerDao;

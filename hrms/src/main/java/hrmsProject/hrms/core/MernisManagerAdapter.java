@@ -1,20 +1,42 @@
 package hrmsProject.hrms.core;
 
 import java.rmi.RemoteException;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
+import org.springframework.stereotype.Service;
+
+import hrmsProject.hrms.entities.concretes.Candidate;
 import tr.gov.nvi.tckimlik.WS.KPSPublicSoapProxy;
 
+@Service
 public class MernisManagerAdapter implements MernisService {
-
 	
-	public boolean mernisVerify() throws NumberFormatException, RemoteException {
+	public boolean mernisVerify(Candidate candidate)  {
 		
 		KPSPublicSoapProxy kpsPublic= new KPSPublicSoapProxy();
+		boolean result=false;
+		try {
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(candidate.getBirthyear());
+			int year = calendar.get(Calendar.YEAR);
+			
+			result = kpsPublic.TCKimlikNoDogrula(
+						Long.parseLong(candidate.getNationalityId()), candidate.getFirstName().toUpperCase(),
+						candidate.getLastName().toUpperCase(), year);
+		} 
 		
-		boolean result= kpsPublic.TCKimlikNoDogrula(
-				Long.parseLong("34573780366"), "BUKET", "GÜLGÜN", 1996);
-		
-		return result;
-	}
+		catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+					
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();		
+		}
+			return result;
+		}
+	
 
 }

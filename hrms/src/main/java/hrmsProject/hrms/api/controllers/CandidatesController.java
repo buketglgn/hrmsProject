@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hrmsProject.hrms.business.abstracts.CandidateService;
+import hrmsProject.hrms.core.utilities.results.DataResult;
+import hrmsProject.hrms.core.utilities.results.Result;
 import hrmsProject.hrms.entities.concretes.Candidate;
 
 
@@ -26,13 +28,13 @@ public class CandidatesController {
 	}
 	
 	@PostMapping("/add")
-	public void add(@RequestBody Candidate candidate){
+	public Result add(@RequestBody Candidate candidate){
 		
-		this.candidateService.add(candidate);
+	  return this.candidateService.add(candidate);
 	}
 	
 	@GetMapping("/getall")
-	public List<Candidate> getall(){
+	public DataResult<List<Candidate>>  getall(){
 		
 		return this.candidateService.getall();
 	}

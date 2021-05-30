@@ -25,12 +25,12 @@ public class EmployersController {
 		
 	}
 	
-	@GetMapping("/add")
+	@PostMapping("/add")
 	public void add(@RequestBody Employer employer) {
 		this.employerService.add(employer);
 	}
 	
-	@PostMapping("/getall")
+	@GetMapping("/getall")
 	public List<Employer> getall(){
 		return this.employerService.getall();
 	}
